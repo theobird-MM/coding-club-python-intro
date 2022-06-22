@@ -1,7 +1,6 @@
 import sys
 import random
 
-
 def Proceed():
     print("Proceed?")
     a = input()
