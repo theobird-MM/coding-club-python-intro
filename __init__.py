@@ -1,17 +1,65 @@
+import sys
+import random
+
+
+def Proceed():
+    print("Proceed?")
+    a = input()
+    if a == "No":
+        exit()
+
 ## Python Boolean Tests
-print("Boolean Testing Commencing...")
+testString = "boolean testing commencing"
+print(testString.title())
 
-a = 530
+testPass = False
+a = 0
 b = 75
-c = 50
+c = random.randrange(50,100)
+testIn = "Input's"
 
-if a < b and a != c:
-    print("Input is too smol.")
-elif a == c:
-    print("Input's the same as C.")
-else:
-    print(a,"is good.\nYou may continue...\n...")
+print("We need a value, Sarah")
 
-print("Which way do you want to go?")
+while testPass is False:
+    a = int(input())
+
+    if a < b and a != c:
+        print(testIn, "too smol.")
+    elif a == c:
+        print(testIn, "the same as Hoggle's.")
+    else:
+        testPass = True
+        print(f"{a} is good, Hoggle's was {c}.\nYou may continue...")
+        break
+
+Proceed()
+
+## Going to planets
+planets = ["Mars", "Venus", "Jupiter", "Saturn", "Uranus", "Mercury", "Neptune"]
+planetoids = ["Pluto", "Eris", "Ceres", "Ganymede"]
+
+if testPass:
+    print("Where do you want to go?")
+
+destination = 0
+destinationConfirmed = False
+
+while destinationConfirmed is False:
+    destination = input()
+    
+    if destination in planets:
+        print("Excellent. We are going to ", destination)
+        destinationConfirmed = True
+    elif destination in planetoids:
+        print("That is not a planet, but if you insist...")
+        destinationConfirmed = True
+    else:
+        print("A planet, Sarah.")
+    if destinationConfirmed:
+        break
+
+
+
+
 
 
