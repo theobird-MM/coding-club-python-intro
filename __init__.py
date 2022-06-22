@@ -1,7 +1,7 @@
 import sys
 import random
 
-def Proceed():
+def proceed():
     print("Proceed?")
     a = input()
     if a == "No":
@@ -31,7 +31,7 @@ while testPass is False:
         print(f"{a} is good, Hoggle's was {c}.\nYou may continue...")
         break
 
-Proceed()
+proceed()
 
 ## Going to planets
 planets = ["Mars", "Venus", "Jupiter", "Saturn", "Uranus", "Mercury", "Neptune"]
@@ -57,7 +57,7 @@ while destinationConfirmed is False:
     if destinationConfirmed:
         break
 
-
+proceed()
 
 
 
