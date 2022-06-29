@@ -2,13 +2,19 @@ import sys
 import random
 
 def proceed():
-    print("Proceed?")
-    a = input()
-    if a == "No":
+    a = input("Proceed? ").lower()
+    
+    if a in ["yes","y"]:
+        print("Then let's go.")
+    if len(a) > 8:
+        print("There's no need to be rude.")
+        exit() 
+    else:
+        print("Very well.")
         exit()
 
-## Python Boolean Tests
-testString = "boolean testing commencing"
+## ---- Python Boolean Tests
+testString = "sarah's chronicles commencing"
 print(testString.title())
 
 testPass = False
@@ -31,21 +37,20 @@ while testPass is False:
         print(f"{a} is good, Hoggle's was {c}.\nYou may continue...")
         break
 
-proceed()
+# proceed() ## Manual check for continuing
 
-## Going to planets
-planets = ["Mercury", "Venus", "Mars","Jupiter", "Saturn", "Uranus","Neptune"]
-planetoids = ["Pluto", "Eris", "Ceres", "Ganymede"]
+## ---- Going to planets
+print("Where do you want to go?")
+    
+planets = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune"]
+planetoids = ["pluto", "eris", "ceres", "ganymede"]
 planetGravity = [0.378,0.907,0.377,2.36,0.916,0.889,1.12,0.071]
 
-if testPass:
-    print("Where do you want to go?")
-
-destination = 0
+destination = ""
 destinationConfirmed = False
 
 while destinationConfirmed is False:
-    destination = input()
+    destination = input().lower()
     
     if destination in planets:
         print("Excellent. We are going to ", destination)
@@ -53,12 +58,21 @@ while destinationConfirmed is False:
     elif destination in planetoids:
         print("That is not a planet, but if you insist...")
         destinationConfirmed = True
+    elif destination == "earth":
+        print("We are already there. Choose somewhere else.")
+    elif destination == "moon":
+        print("Come on, Sarah, something more exciting than that.")
     else:
         print("A planet, Sarah.")
     if destinationConfirmed:
         break
 
-proceed()
+proceed() ## Manual check for continuing
+
+
+
+
+
 
 
 
