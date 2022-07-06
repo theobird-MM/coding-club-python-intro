@@ -1,12 +1,14 @@
 import sys
 import random
 
+userInput = ""
+
 def proceed():
-    a = input("Proceed? ").lower()
+    userInput = input("Proceed? ").lower()
     
-    if a in ["yes","y"]:
+    if userInput in ["yes","y"]:
         print("Then let's go.")
-    if len(a) > 8:
+    if len(userInput) > 8:
         print("There's no need to be rude.")
         exit() 
     else:
@@ -18,60 +20,73 @@ testString = "sarah's chronicles commencing"
 print(testString.title())
 
 testPass = False
-a = 0
-b = 75
-c = random.randrange(50,100)
+testInput = 0
+testLowerLimit = 75
+testHoggle = random.randrange(50,100)
 testIn = "Input's"
+testPatience = 1
 
 print("We need a value, Sarah")
 
 while testPass is False:
-    a = int(input())
+    testInput = int(input())
 
-    if a < b and a != c:
+    if testInput < testLowerLimit and testInput != testHoggle:
         print(testIn, "too smol.")
-    elif a == c:
+        if testPatience > 2:
+            print("Pick something bigger, Sarah...")
+    elif testInput == testHoggle:
         print(testIn, "the same as Hoggle's.")
     else:
         testPass = True
-        print(f"{a} is good, Hoggle's was {c}.\nYou may continue...")
+        if testPatience > 2:
+            print(f"Finally! A big number. Hoggle only picked {testHoggle}.")
+        else:
+            print(f"{testInput} is good, Hoggle's was {testHoggle}.")
+        print("You may continue...")
         break
+    testPatience = testPatience + 1
 
-# proceed() ## Manual check for continuing
+## proceed() ## Manual check for continuing
 
 ## ---- Going to planets
 print("Where do you want to go?")
     
-planets = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune"]
-planetoids = ["pluto", "eris", "ceres", "ganymede"]
-planetGravity = [0.378,0.907,0.377,2.36,0.916,0.889,1.12,0.071]
+planets = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune","pluto", "eris", "ceres", "ganymede"]
+planetGravity = [0.378,0.907,0.377,2.36,0.916,0.889,1.12,0.071,0.84,0.028,0.146]
 
-destination = ""
+destinationRequest = ""
 destinationConfirmed = False
+destinationSelection = 0
+destinationsQueried = 0
 
 while destinationConfirmed is False:
-    destination = input().lower()
+    destinationRequest = input().lower()
     
-    if destination in planets:
-        print("Excellent. We are going to ", destination)
+    if destinationRequest in planets[0:7]:
+        print("Excellent. We are going to ", destinationRequest)
         destinationConfirmed = True
-    elif destination in planetoids:
+    elif destinationRequest in planets[8:10]:
         print("That is not a planet, but if you insist...")
         destinationConfirmed = True
-    elif destination == "earth":
-        print("We are already there. Choose somewhere else.")
-    elif destination == "moon":
-        print("Come on, Sarah, something more exciting than that.")
+    elif destinationRequest == "earth":
+        print(f"We are already there. Choose somewhere else. ({destinationsQueried})")
+    elif destinationRequest == "moon":
+        print(f"Come on, Sarah, something more exciting than that. ({destinationsQueried})")
     else:
-        print("A planet, Sarah.")
+        print(f"A planet, Sarah. ({destinationsQueried})")
     if destinationConfirmed:
+        destinationSelection = planets.index(destinationRequest)
         break
+    destinationsQueried = destinationsQueried + 1
 
-proceed() ## Manual check for continuing
+## proceed() ## Manual check for continuing
 
+## ---- Preparing for the selected planet.
 
+print(f"Are you aware of the gravity on {planets[destinationSelection].title()}?")
 
-
+userInput = input().lower()
 
 
 
