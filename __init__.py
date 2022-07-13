@@ -3,6 +3,21 @@ import random
 
 userInput = ""
 
+#planets = {"name":"earth","gravity":1.00,"moons":1}
+    
+planet = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune","pluto", "eris", "ceres", "ganymede"]
+planetGravity = [0.378,0.907,0.377,2.36,0.916,0.889,1.12,0.071,0.84,0.028,0.146]
+
+
+for i in range(len(planet)):
+    # planets = {}
+    print(planetGravity[i])
+
+
+
+
+exit()
+
 def proceed():
     userInput = input("Proceed? ").lower()
     
@@ -49,24 +64,29 @@ while testPass is False:
 
 ## proceed() ## Manual check for continuing
 
-## ---- Going to planets
+## ---- Going to planet
 print("Where do you want to go?")
+
+#planets = {"name":"earth","gravity":1.00,"moons":1}
     
-planets = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune","pluto", "eris", "ceres", "ganymede"]
+planet = ["mercury", "venus", "mars","jupiter", "saturn", "uranus","neptune","pluto", "eris", "ceres", "ganymede"]
 planetGravity = [0.378,0.907,0.377,2.36,0.916,0.889,1.12,0.071,0.84,0.028,0.146]
+
+for x in planet:
+    planets = {}
 
 destinationRequest = ""
 destinationConfirmed = False
-destinationSelection = 0
+destinationSelection = ""
 destinationsQueried = 0
 
 while destinationConfirmed is False:
     destinationRequest = input().lower()
     
-    if destinationRequest in planets[0:7]:
+    if destinationRequest in planet[0:7]:
         print("Excellent. We are going to ", destinationRequest)
         destinationConfirmed = True
-    elif destinationRequest in planets[8:10]:
+    elif destinationRequest in planet[8:10]:
         print("That is not a planet, but if you insist...")
         destinationConfirmed = True
     elif destinationRequest == "earth":
@@ -76,7 +96,7 @@ while destinationConfirmed is False:
     else:
         print(f"A planet, Sarah. ({destinationsQueried})")
     if destinationConfirmed:
-        destinationSelection = planets.index(destinationRequest)
+        destinationSelection = planet.index(destinationRequest)
         break
     destinationsQueried = destinationsQueried + 1
 
@@ -84,7 +104,7 @@ while destinationConfirmed is False:
 
 ## ---- Preparing for the selected planet.
 
-print(f"Are you aware of the gravity on {planets[destinationSelection].title()}?")
+print(f"Are you aware of the gravity on {planet[destinationSelection].title()}?")
 
 userInput = input().lower()
 
